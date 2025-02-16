@@ -35,9 +35,14 @@ public class ProductService {
         return productUpdateRequest.getName();
     }
 
-    public Long delete(Long id) {
-        Product product = productRepository.findById(id).get();
-        productRepository.delete(product);
-        return product.getId();
+    public boolean delete(Long id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+        if(productOptional.isPresent())
+        {
+            Product product = productOptional.get();
+            productRepository.delete(product);
+            return true;
+        }
+        return false;
     }
 }
