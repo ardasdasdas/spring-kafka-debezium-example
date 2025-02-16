@@ -1,0 +1,4 @@
+# Dockerfile-mysql
+FROM debezium/example-mysql:1.8
+ENV MYSQL_DATABASE=testdb
+ENV MYSQL_ROOT_PASSWORD=root
